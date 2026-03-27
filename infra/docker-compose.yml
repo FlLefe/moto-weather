@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   # ── Backend Node.js / TypeScript ──────────────────────────────────
   backend:
@@ -29,7 +27,7 @@ services:
     image: osrm/osrm-backend:latest
     container_name: motoweather-osrm
     restart: unless-stopped
-    command: osrm-routed --algorithm mld /data/france-latest.osrm
+    command: osrm-routed --algorithm mld /data/ile-de-france-latest.osrm
     volumes:
       - ./osrm/data:/data:ro
     networks:
