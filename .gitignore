@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+*.osm.pbf
+*.osrm*
+infra/osrm/data/
+.expo/
+android/
+ios/
+*.apk
+*.ipa
+*.tsbuildinfo

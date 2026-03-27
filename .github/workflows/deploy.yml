@@ -1,0 +1,35 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'infra/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 92.222.230.57
+          username: ubuntu
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 55464
+          script: |
+            cd ~/services/motoweather
+
+            # Pull latest code
+            git pull origin main
+
+            # Rebuild and restart backend
+            cd infra
+            docker compose build backend
+            docker compose up -d backend
+
+            echo "Deploy complete!"

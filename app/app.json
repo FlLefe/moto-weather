@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "MotoWeather",
+    "slug": "motoweather",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "motoweather",
+    "userInterfaceStyle": "dark",
+    "splash": { "backgroundColor": "#0F172A" },
+    "ios": { "supportsTablet": false, "bundleIdentifier": "dev.reforgelab.motoweather" },
+    "android": { "adaptiveIcon": { "backgroundColor": "#0F172A" }, "package": "dev.reforgelab.motoweather" },
+    "plugins": ["expo-router", "expo-location"],
+    "extra": {
+      "apiUrl": "https://meteo.reforgelab.dev",
+      "router": { "origin": false }
+    }
+  }
+}
